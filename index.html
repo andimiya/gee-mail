@@ -2,17 +2,168 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
     <script>
+      
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+
+
+		for (var i = 0; i < window.geemails.length; i++) {
+
+
+		//each time it loops through, create a new div	
+      		var displaySubject = document.createElement('div');
+      	//each time it loops through, concatenate the word subject with i
+      		displaySubject.id = 'subject'.concat(i + '');
+      	//each time it loops through, create a text node of subject[i]
+      		var subjectLineText = document.createTextNode(window.geemails[i].subject);
+      	//appends the new div to subject[i]
+      		displaySubject.appendChild(subjectLineText);
+      	//gets the div id = container element and assigns it to the variable 'container'
+      		var container = document.getElementById('subject');
+      	//appends the subject to the container variable
+      		container.appendChild(displaySubject);
+      		
+
+      	//SENDER stuff	
+      		var displaySender = document.createElement('div');
+      		displaySender.id = 'sender'.concat(i + '');
+      		var senderLineText = document.createTextNode(window.geemails[i].sender);
+      		displaySender.appendChild(senderLineText);
+      		var container = document.getElementById('sender');
+      		container.appendChild(displaySender);
+
+      	//DATE stuff
+      		var displayDate = document.createElement('div');
+      		displayDate.id = 'date'.concat(i + '');
+      		var dateLineText = document.createTextNode(window.geemails[i].date);
+      		displayDate.appendChild(dateLineText);
+      		var container = document.getElementById('date');
+      		container.appendChild(displayDate);
         
-      };
+
+        //BODY stuff
+
+      		var displayBody = document.createElement('div');
+      		displayBody.id = 'body'.concat(i + '');
+      		var bodyText = document.createTextNode(window.geemails[i].body);
+      		displayBody.appendChild(bodyText);
+          displayBody.classList.add("unhidden")
+      		var container = document.getElementById('body');
+      		container.appendChild(displayBody);
+
+      	};
+		
+	
+		//DISPLAY i
+
+		// document.getElementById('count').innerHTML = i;
+
+		
+		//Get New Messages
+
+		setInterval(function (){
+
+		//Randomizer
+
+			var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
+		
+		//Subject - Get New Message
+
+			var displaySubject = document.createElement('div');
+      		displaySubject.id = 'subject'.concat(i ++);
+      		var subjectLineText = document.createTextNode(random.subject);
+      		displaySubject.appendChild(subjectLineText);
+      		var container = document.getElementById('subject');
+      		container.appendChild(displaySubject);
+
+		//Date - Get New Message
+
+			var displayDate = document.createElement('div');
+      		displayDate.id = 'date'.concat(i ++);
+      		var dateLineText = document.createTextNode(random.date);
+      		displayDate.appendChild(dateLineText);
+      		var container = document.getElementById('date');
+      		container.appendChild(displayDate);
+
+		//Sender - Get New Message
+
+			var displaySender = document.createElement('div');
+      		displaySender.id = 'sender'.concat(i ++);
+      		var senderLineText = document.createTextNode(random.sender);
+      		displaySender.appendChild(senderLineText);
+      		var container = document.getElementById('sender');
+      		container.appendChild(displaySender);
+
+      	//Body - Get New Message	
+      		var displayBody = document.createElement('div');
+      		displayBody.id = 'body'.concat(i + '');
+      		var bodyText = document.createTextNode(random.body);
+      		displayBody.appendChild(bodyText);
+      		var container = document.getElementById('body');
+      		container.appendChild(displayBody);
+
+  		
+      	//Timer
+
+      	}, 5000);
+
+    };
+
+    //Show or Hide the Body of Messages - Right now it's showing/hiding EVERYTHING at once!!
+
+    //If div id = subject2, then show/hide ONLY div id = body2
+
+
+
+  
+
+   
+
+
+
+
+    function toggle() {
+
+      var bodyDiv = event.target.id.split("subject");
+
+      var showHide = document.getElementById('body'+ bodyDiv);
+
+      if (showHide.style.className === "hidden") {
+          showHide.style.className = "unhidden-body";
+      }
+        else {
+          showHide.style.className = "hidden";
+        }
+            console.log(showHide);
+
+
+    };
+
+
     </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
+
+		<div id ="header">
+			<h1>Header Text!!!</h1>
 		</div>
+
+		<div class="container" id="main"></div>
+			<thead>Inbox Count: <div id = "count"></div></thead>
+				<tbody>
+
+					<!-- <tr></tr> -->
+					<table>
+						<td id = "sender"></td>
+						<td id = "subject" onclick = "toggle()"></td>
+						<td id = "body" class = "hidden"></td>
+						<td id = "date"></td>
+						
+         </table>
+			</tbody>
 	</body>
 </html>
+
+
