@@ -1,0 +1,8 @@
+.hidden {
+	display: none;
+}
+
+.unhidden-body {
+	display: block;
+}
+

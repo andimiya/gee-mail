@@ -22,6 +22,8 @@
       		var subjectLineText = document.createTextNode(window.geemails[i].subject);
       	//appends the new div to subject[i]
       		displaySubject.appendChild(subjectLineText);
+          displaySubject.addEventListener("click", toggle );
+
       	//gets the div id = container element and assigns it to the variable 'container'
       		var container = document.getElementById('subject');
       	//appends the subject to the container variable
@@ -51,21 +53,21 @@
       		displayBody.id = 'body'.concat(i + '');
       		var bodyText = document.createTextNode(window.geemails[i].body);
       		displayBody.appendChild(bodyText);
-          displayBody.classList.add("unhidden")
+          displayBody.classList.add("hidden");
       		var container = document.getElementById('body');
       		container.appendChild(displayBody);
 
       	};
 		
 	
-		//DISPLAY i
-
-		// document.getElementById('count').innerHTML = i;
-
 		
 		//Get New Messages
 
 		setInterval(function (){
+
+
+    //Count up 1 each time
+
 
 		//Randomizer
 
@@ -103,6 +105,7 @@
       		displayBody.id = 'body'.concat(i + '');
       		var bodyText = document.createTextNode(random.body);
       		displayBody.appendChild(bodyText);
+          displayBody.classList.add("hidden");
       		var container = document.getElementById('body');
       		container.appendChild(displayBody);
 
@@ -130,18 +133,21 @@
 
       var bodyDiv = event.target.id.split("subject");
 
-      var showHide = document.getElementById('body'+ bodyDiv);
+      var showHide = document.getElementById('body'+ bodyDiv[1]);
 
-      if (showHide.style.className === "hidden") {
-          showHide.style.className = "unhidden-body";
+      
+
+      if (showHide.className === "hidden") {
+          showHide.className = "unhidden-body";
       }
         else {
-          showHide.style.className = "hidden";
+          showHide.className = "hidden";
         }
-            console.log(showHide);
-
+      
 
     };
+
+
 
 
     </script>
@@ -157,8 +163,8 @@
 					<!-- <tr></tr> -->
 					<table>
 						<td id = "sender"></td>
-						<td id = "subject" onclick = "toggle()"></td>
-						<td id = "body" class = "hidden"></td>
+						<td id = "subject"></td>
+						<td id = "body"></td>
 						<td id = "date"></td>
 						
          </table>
