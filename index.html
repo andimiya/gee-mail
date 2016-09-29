@@ -50,6 +50,14 @@
             
         //Get New Messages
 		    function newMessages(){
+
+          var mailArea = document.createElement('div');
+
+          //Assigns MailArea class to 'emailLine'
+          mailArea.className = "mailArea"; 
+
+          //Adds the mailArea/emailLine div to the container
+          container.appendChild(mailArea);
     
           //Randomizer
 			    var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
@@ -58,6 +66,7 @@
 			    var displaySubject = document.createElement('div');
       		displaySubject.id = 'subject'.concat(i ++);
           displaySubject.innerHTML = random.subject;
+          displaySubject.addEventListener("click", toggle );
       		mailArea.appendChild(displaySubject);
 
 		      //Date - Get New Message
@@ -80,13 +89,13 @@
       		mailArea.appendChild(displayBody);
 
         }  //End of New Messages
-      // }  //End of For Loop
 
       setInterval(newMessages, 3000);
 
       //Show or Hide the Body of Messages 
       function toggle() {
         var bodyDiv = event.target.id.split("subject");
+        console.log(event.target.id, "eventTarget iD");
         var showHide = document.getElementById('body'+ bodyDiv[1]);
         if (showHide.className === "hidden") {
           showHide.className = "unhidden-body";
@@ -105,10 +114,7 @@
 			   <h1>GeeMail</h1>
 		      </div>    
 		    <div id="inbox">Inbox Count: </div>
-			
       <div id="container"></div>
-      <div id = "emailLine"></div>
-      <!-- <div id = "mailArea"></div>              -->
 
 	</body>
 </html>
