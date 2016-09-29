@@ -6,3 +6,44 @@
 	display: block;
 }
 
+h1 {
+	font-family: "arial", "sans-serif";
+    font-size: 19px;
+    font-weight: bold;	
+}
+
+p.inbox {
+	font-family: "arial", "sans-serif";
+    font-size: 15px;
+    font-weight: bold;
+    color: #dd4b39;
+}
+
+#mailArea {
+	font-family: "arial","sans-serif";
+}
+
+#emailLine {
+	font-family: "arial","sans-serif";
+	font-size: 13px;
+
+}
+
+
+
+
+#date {
+	background-color: red;
+    float: left;
+    width: 200px;
+}
+
+#sender {
+	background-color: green;
+    float: left;
+    width: 200px;
+}
+
+
+
+
