@@ -15,13 +15,16 @@ h1 {
 #container {
 	font-family: "arial","sans-serif";
 	font-size: 13px;
+	float:left;
 }
 
-#mailArea {
-
-
+.mailArea {
+	float:left;
 }
 
+.bodyArea {
+	float:bottom;
+}
 
 
 

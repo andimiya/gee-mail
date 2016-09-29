@@ -15,49 +15,64 @@
           //Creates a DIV ID called MailArea
           var mailArea = document.createElement('div');
 
-          //Assigns MailArea class to 'emailLine'
+          //Assigns MailArea class to 'mailArea'
           mailArea.className = "mailArea"; 
 
           //Adds the mailArea/emailLine div to the container
           container.appendChild(mailArea);
+
+          //Creates a DIV ID to hold sender, subject, date
+          var subjectSenderDate = document.createElement('div');
+          subjectSenderDate.className = "subjectSenderDate";
+          mailArea.appendChild(subjectSenderDate);
+
+          //Creates a DIV ID called BodyArea
+          var bodyArea = document.createElement('div');
+
+          //Assigns bodyArea class to 
+          bodyArea.className = "bodyArea";
+
+          subjectSenderDate.appendChild(bodyArea);
 
           //SUBJECT stuff
       		var displaySubject = document.createElement('div');
       		displaySubject.id = 'subject'.concat(i + '');
       		displaySubject.innerHTML = geemails[i].subject;
           displaySubject.addEventListener("click", toggle );
-      		mailArea.appendChild(displaySubject);
+      		subjectSenderDate.appendChild(displaySubject);
       		
       	//SENDER stuff	
       		var displaySender = document.createElement('div');
       		displaySender.id = 'sender'.concat(i + '');
           displaySender.innerHTML = geemails[i].sender;
-      		mailArea.appendChild(displaySender);
+      		subjectSenderDate.appendChild(displaySender);
 
       	//DATE stuff
       		var displayDate = document.createElement('div');
       		displayDate.id = 'date'.concat(i + '');
           displayDate.innerHTML = geemails[i].date;
-      		mailArea.appendChild(displayDate);
+      		subjectSenderDate.appendChild(displayDate);
         
         //BODY stuff
       		var displayBody = document.createElement('div');
       		displayBody.id = 'body'.concat(i + '');
           displayBody.innerHTML = geemails[i].body;
           displayBody.classList.add('hidden');
-      		mailArea.appendChild(displayBody);
+      		bodyArea.appendChild(displayBody);
         } //End of For
             
         //Get New Messages
 		    function newMessages(){
 
           var mailArea = document.createElement('div');
-
-          //Assigns MailArea class to 'emailLine'
           mailArea.className = "mailArea"; 
-
-          //Adds the mailArea/emailLine div to the container
           container.appendChild(mailArea);
+          var subjectSenderDate = document.createElement('div');
+          subjectSenderDate.className = "subjectSenderDate";
+          mailArea.appendChild(subjectSenderDate);
+          var bodyArea = document.createElement('div');
+          bodyArea.className = "bodyArea";
+          subjectSenderDate.appendChild(bodyArea);
     
           //Randomizer
 			    var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
@@ -67,26 +82,26 @@
       		displaySubject.id = 'subject'.concat(i ++);
           displaySubject.innerHTML = random.subject;
           displaySubject.addEventListener("click", toggle );
-      		mailArea.appendChild(displaySubject);
+      		subjectSenderDate.appendChild(displaySubject);
 
 		      //Date - Get New Message
    			  var displayDate = document.createElement('div');
       		displayDate.id = 'date'.concat(i ++);
           displayDate.innerHTML = random.date;
-      		mailArea.appendChild(displayDate);
+      		subjectSenderDate.appendChild(displayDate);
 
 		      //Sender - Get New Message
 			    var displaySender = document.createElement('div');
       		displaySender.id = 'sender'.concat(i ++);
           displaySender.innerHTML = random.sender;
-      		mailArea.appendChild(displaySender);
+      		subjectSenderDate.appendChild(displaySender);
 
       	//Body - Get New Message	
       		var displayBody = document.createElement('div');
       		displayBody.id = 'body'.concat(i + '');
           displayBody.innerHTML = random.body;
           displayBody.classList.add('hidden');
-      		mailArea.appendChild(displayBody);
+      		bodyArea.appendChild(displayBody);
 
         }  //End of New Messages
 
