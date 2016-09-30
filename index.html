@@ -22,9 +22,17 @@
           container.appendChild(mailArea);
 
           //Creates a DIV ID to hold sender, subject, date
-          var subjectSenderDate = document.createElement('div');
-          subjectSenderDate.className = "subjectSenderDate";
-          mailArea.appendChild(subjectSenderDate);
+          var subjectArea = document.createElement('div');
+          subjectArea.className = "subjectArea";
+          mailArea.appendChild(subjectArea);
+
+          var senderArea = document.createElement('div');
+          senderArea.className = "senderArea";
+          mailArea.appendChild(senderArea);
+
+          var dateArea = document.createElement('div');
+          dateArea.className = "dateArea";
+          mailArea.appendChild(dateArea);
 
           //Creates a DIV ID called BodyArea
           var bodyArea = document.createElement('div');
@@ -32,26 +40,26 @@
           //Assigns bodyArea class to 
           bodyArea.className = "bodyArea";
 
-          subjectSenderDate.appendChild(bodyArea);
+          subjectArea.appendChild(bodyArea);
 
           //SUBJECT stuff
       		var displaySubject = document.createElement('div');
       		displaySubject.id = 'subject'.concat(i + '');
       		displaySubject.innerHTML = geemails[i].subject;
           displaySubject.addEventListener("click", toggle );
-      		subjectSenderDate.appendChild(displaySubject);
+      		subjectArea.appendChild(displaySubject);
       		
       	//SENDER stuff	
       		var displaySender = document.createElement('div');
       		displaySender.id = 'sender'.concat(i + '');
           displaySender.innerHTML = geemails[i].sender;
-      		subjectSenderDate.appendChild(displaySender);
+      		senderArea.appendChild(displaySender);
 
       	//DATE stuff
       		var displayDate = document.createElement('div');
       		displayDate.id = 'date'.concat(i + '');
           displayDate.innerHTML = geemails[i].date;
-      		subjectSenderDate.appendChild(displayDate);
+      		dateArea.appendChild(displayDate);
         
         //BODY stuff
       		var displayBody = document.createElement('div');
@@ -117,7 +125,8 @@
         } else {
           showHide.className = "hidden";
           }
-      }
+      }// End of Toggle
+
     };  //End of Window Onload
 
 
