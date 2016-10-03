@@ -75,12 +75,18 @@
           var mailArea = document.createElement('div');
           mailArea.className = "mailArea"; 
           container.appendChild(mailArea);
-          var subjectSenderDate = document.createElement('div');
-          subjectSenderDate.className = "subjectSenderDate";
-          mailArea.appendChild(subjectSenderDate);
+          var subjectArea = document.createElement('div');
+          subjectArea.className = "subjectArea";
+          mailArea.appendChild(subjectArea);
+          var senderArea = document.createElement('div');
+          senderArea.className = "senderArea";
+          mailArea.appendChild(senderArea);
+          var dateArea = document.createElement('div');
+          dateArea.className = "dateArea";
+          mailArea.appendChild(dateArea);
           var bodyArea = document.createElement('div');
           bodyArea.className = "bodyArea";
-          subjectSenderDate.appendChild(bodyArea);
+          subjectArea.appendChild(bodyArea);
     
           //Randomizer
 			    var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
@@ -90,19 +96,19 @@
       		displaySubject.id = 'subject'.concat(i ++);
           displaySubject.innerHTML = random.subject;
           displaySubject.addEventListener("click", toggle );
-      		subjectSenderDate.appendChild(displaySubject);
+      		subjectArea.appendChild(displaySubject);
 
 		      //Date - Get New Message
    			  var displayDate = document.createElement('div');
       		displayDate.id = 'date'.concat(i ++);
           displayDate.innerHTML = random.date;
-      		subjectSenderDate.appendChild(displayDate);
+      		dateArea.appendChild(displayDate);
 
 		      //Sender - Get New Message
 			    var displaySender = document.createElement('div');
       		displaySender.id = 'sender'.concat(i ++);
           displaySender.innerHTML = random.sender;
-      		subjectSenderDate.appendChild(displaySender);
+      		senderArea.appendChild(displaySender);
 
       	//Body - Get New Message	
       		var displayBody = document.createElement('div');
@@ -113,7 +119,7 @@
 
         }  //End of New Messages
 
-      setInterval(newMessages, 3000);
+      setInterval(newMessages, 6000);
 
       //Show or Hide the Body of Messages 
       function toggle() {
