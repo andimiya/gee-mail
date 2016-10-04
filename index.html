@@ -11,7 +11,7 @@
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 
 		    for (var i = 0; i < window.geemails.length; i++) {
-
+      
           //Creates a DIV ID called MailArea
           var mailArea = document.createElement('div');
 
@@ -117,9 +117,15 @@
           displayBody.classList.add('hidden');
       		bodyArea.appendChild(displayBody);
 
-        }  //End of New Messages
 
-      setInterval(newMessages, 6000);
+          // Inbox Counter Counting New Messages
+          var inboxNum = document.getElementsByClassName('mailArea');
+          var inboxCount = document.getElementById("inboxCount");
+          inboxCount.innerHTML = inboxNum.length;
+
+        }  //End of New Messages
+     
+      setInterval(newMessages, 2000);
 
       //Show or Hide the Body of Messages 
       function toggle() {
@@ -133,6 +139,11 @@
           }
       }// End of Toggle
 
+      //Counter outside of the New Messages function  
+      var inboxNum = document.getElementsByClassName('mailArea');
+      var inboxCount = document.getElementById("inboxCount");
+      inboxCount.innerHTML = inboxNum.length;
+
     };  //End of Window Onload
 
 
@@ -143,7 +154,7 @@
 		    <div id ="header">
 			   <h1>GeeMail</h1>
 		      </div>    
-		    <div id="inbox">Inbox Count: </div>
+		    <div id="inbox">Inbox Count:</div><div id="inboxCount"></div>
       <div id="container"></div>
 
 	</body>
