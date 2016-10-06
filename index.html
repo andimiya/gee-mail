@@ -40,7 +40,7 @@
           //Assigns bodyArea class to 
           bodyArea.className = "bodyArea";
 
-          subjectArea.appendChild(bodyArea);
+          mailArea.appendChild(bodyArea);
 
           //SUBJECT stuff
       		var displaySubject = document.createElement('div');
@@ -86,7 +86,7 @@
           mailArea.appendChild(dateArea);
           var bodyArea = document.createElement('div');
           bodyArea.className = "bodyArea";
-          subjectArea.appendChild(bodyArea);
+          mailArea.appendChild(bodyArea);
     
           //Randomizer
 			    var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
@@ -125,7 +125,7 @@
 
         }  //End of New Messages
      
-      setInterval(newMessages, 2000);
+      setInterval(newMessages, 5000);
 
       //Show or Hide the Body of Messages 
       function toggle() {
@@ -149,7 +149,6 @@
 
     </script>
     </body>
-       
 
 		    <div id ="header">
 			   <h1>GeeMail</h1>
