@@ -59,6 +59,8 @@
           bodyArea.appendChild(displayBody);
         } //End of For Loop
             
+        var x = 10;
+
         //Get New Messages
         function newMessages(){
           var mailArea = document.createElement('div');
@@ -80,10 +82,10 @@
           //Randomizer
           var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
             
-          var x = 11;
           //Subject - Get New Message
           var displaySubject = document.createElement('div');
           displaySubject.id = 'subject'.concat(x + '');
+
           displaySubject.innerHTML = random.subject;
           displaySubject.addEventListener("click", toggle );
           subjectArea.appendChild(displaySubject);
@@ -103,11 +105,14 @@
           displayBody.innerHTML = random.body;
           displayBody.classList.add('hidden');
           bodyArea.appendChild(displayBody);
-            
+
           // Inbox Counter Counting New Messages
           var inboxNum = document.getElementsByClassName('mailArea');
           var inboxCount = document.getElementById("inboxCount");
           inboxCount.innerHTML = inboxNum.length;
+          
+          x++;
+
         }  //End of Get New Messages
      
       setInterval(newMessages, 5000);
