@@ -1,77 +1,66 @@
+
 <html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" type="text/css" media="screen">
-	</head>
-	<body>
+  <head>
+    <script src="js/mail-generator.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen">
+  </head>
+  <body>
     <script>
       
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-
-		    for (var i = 0; i < window.geemails.length; i++) {
+        for (var i = 0; i < window.geemails.length; i++) {
       
           //Creates a DIV ID called MailArea
           var mailArea = document.createElement('div');
-
           //Assigns MailArea class to 'mailArea'
           mailArea.className = "mailArea"; 
-
           //Adds the mailArea/emailLine div to the container
           container.appendChild(mailArea);
-
           //Creates a DIV ID to hold sender, subject, date
           var subjectArea = document.createElement('div');
           subjectArea.className = "subjectArea";
           mailArea.appendChild(subjectArea);
-
           var senderArea = document.createElement('div');
           senderArea.className = "senderArea";
           mailArea.appendChild(senderArea);
-
           var dateArea = document.createElement('div');
           dateArea.className = "dateArea";
           mailArea.appendChild(dateArea);
-
           //Creates a DIV ID called BodyArea
           var bodyArea = document.createElement('div');
-
           //Assigns bodyArea class to 
           bodyArea.className = "bodyArea";
-
           container.appendChild(bodyArea);
-
           //SUBJECT stuff
-      		var displaySubject = document.createElement('div');
-      		displaySubject.id = 'subject'.concat(i + '');
-      		displaySubject.innerHTML = geemails[i].subject;
+          var displaySubject = document.createElement('div');
+          displaySubject.id = 'subject'.concat(i + '');
+          displaySubject.innerHTML = geemails[i].subject;
           displaySubject.addEventListener("click", toggle );
-      		subjectArea.appendChild(displaySubject);
-      		
-      	//SENDER stuff	
-      		var displaySender = document.createElement('div');
-      		displaySender.id = 'sender'.concat(i + '');
+          subjectArea.appendChild(displaySubject);
+          
+        //SENDER stuff  
+          var displaySender = document.createElement('div');
+          displaySender.id = 'sender'.concat(i + '');
           displaySender.innerHTML = geemails[i].sender;
-      		senderArea.appendChild(displaySender);
-
-      	//DATE stuff
-      		var displayDate = document.createElement('div');
-      		displayDate.id = 'date'.concat(i + '');
+          senderArea.appendChild(displaySender);
+        //DATE stuff
+          var displayDate = document.createElement('div');
+          displayDate.id = 'date'.concat(i + '');
           displayDate.innerHTML = geemails[i].date;
-      		dateArea.appendChild(displayDate);
+          dateArea.appendChild(displayDate);
         
         //BODY stuff
-      		var displayBody = document.createElement('div');
-      		displayBody.id = 'body'.concat(i + '');
+          var displayBody = document.createElement('div');
+          displayBody.id = 'body'.concat(i + '');
           displayBody.innerHTML = geemails[i].body;
           displayBody.classList.add('hidden');
-      		bodyArea.appendChild(displayBody);
+          bodyArea.appendChild(displayBody);
         } //End of For Loop
             
         //Get New Messages
-		    function newMessages(){
-
+        function newMessages(){
           var mailArea = document.createElement('div');
           mailArea.className = "mailArea"; 
           container.appendChild(mailArea);
@@ -89,51 +78,43 @@
           container.appendChild(bodyArea);
     
           //Randomizer
-			    var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
+          var random = window.geemails[Math.floor(Math.random() * window.geemails.length)];
             
           var x = 11;
-
-		      //Subject - Get New Message
-			    var displaySubject = document.createElement('div');
-      		displaySubject.id = 'subject'.concat(x + '');
+          //Subject - Get New Message
+          var displaySubject = document.createElement('div');
+          displaySubject.id = 'subject'.concat(x + '');
           displaySubject.innerHTML = random.subject;
           displaySubject.addEventListener("click", toggle );
-      		subjectArea.appendChild(displaySubject);
-
-		      //Date - Get New Message
-   			  var displayDate = document.createElement('div');
-      		displayDate.id = 'date'.concat(x + '');
+          subjectArea.appendChild(displaySubject);
+          //Date - Get New Message
+          var displayDate = document.createElement('div');
+          displayDate.id = 'date'.concat(x + '');
           displayDate.innerHTML = random.date;
-      		dateArea.appendChild(displayDate);
-
-		      //Sender - Get New Message
-			    var displaySender = document.createElement('div');
-      		displaySender.id = 'sender'.concat(x + '');
+          dateArea.appendChild(displayDate);
+          //Sender - Get New Message
+          var displaySender = document.createElement('div');
+          displaySender.id = 'sender'.concat(x + '');
           displaySender.innerHTML = random.sender;
-      		senderArea.appendChild(displaySender);
-
-      	//Body - Get New Message	
-      		var displayBody = document.createElement('div');
-      		displayBody.id = 'body'.concat(x + '');
+          senderArea.appendChild(displaySender);
+        //Body - Get New Message  
+          var displayBody = document.createElement('div');
+          displayBody.id = 'body'.concat(x + '');
           displayBody.innerHTML = random.body;
           displayBody.classList.add('hidden');
-      		bodyArea.appendChild(displayBody);
-
-            }
+          bodyArea.appendChild(displayBody);
+            
           // Inbox Counter Counting New Messages
           var inboxNum = document.getElementsByClassName('mailArea');
           var inboxCount = document.getElementById("inboxCount");
           inboxCount.innerHTML = inboxNum.length;
-
         }  //End of Get New Messages
      
       setInterval(newMessages, 5000);
-
       //Show or Hide the Body of Messages 
       function toggle() {
         var bodyDiv = event.target.id.split("subject");
         console.log(event, "eventTarget iD");
-
         var showHide = document.getElementById('body'+ bodyDiv[1]);
         if (showHide.className === "hidden") {
           showHide.className = "unhidden-body";
@@ -141,22 +122,18 @@
           showHide.className = "hidden";
           }
       }// End of Toggle
-
       //Counter outside of the New Messages function  
       var inboxNum = document.getElementsByClassName('mailArea');
       var inboxCount = document.getElementById("inboxCount");
       inboxCount.innerHTML = inboxNum.length;
-
     };  //End of Window Onload
-
-
     </script>
     </body>
 
-		    <div id ="header">
-			   <h1>GeeMail</h1>
-		      </div>    
-		    <div id="inbox">Inbox (<div id="inboxCount"> </div>)</div>
+        <div id ="header">
+         <h1>GeeMail</h1>
+          </div>    
+        <div id="inbox">Inbox (<div id="inboxCount"> </div>)</div>
         <br>
         <br>
       <div id="container">
@@ -165,7 +142,9 @@
       <div id="headerRow">Date</div>
 
 
-	</body>
+  </body>
 </html>
 
 
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
